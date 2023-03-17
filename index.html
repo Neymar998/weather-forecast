@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/qweather-icons@1.1.1/font/qweather-icons.css">
+    <!-- <script src="echarts.js"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+    <!-- <script src="./postcss.config.js"></script> -->
+
+</head>
+
+<body>
+    <div class="index">
+        <div class="topShow">
+            <div class="header">
+                <div class="search_btn" onclick="btnonclick()"></div>
+                <div class="city" id="city">北京市</div>
+            </div>
+            <div class="info">
+                <div class="info__url">
+                    <a href="#" class="left">
+                        <div class="left__block">
+                            <img class="left__img" src="./img/right.png">
+                            <span class="left__text">疫情资讯</span>
+                        </div>
+                    </a>
+                    <a href="#" class="right">
+                        <div class="right__block">
+                            <img src="./img/left.png" class="right__img">
+                            <span class="right__text">安全出行</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="info__wea">晴</div>
+                <div class="background">
+                    <div class="info__about">
+                        <em class="info__about--temperature">9</em>
+                        <em class="info__about--temperaturedu">°</em>
+                    </div>
+                    <div class="info__detalis">
+                        <p class="info__about--detail">南风3级 湿度23%</p>
+                        <p class="info__about--detail">略微偏凉，还是满舒适的。</p>
+                    </div>
+                </div>
+
+                <div class="days">
+                    <div class="days__today">
+                        <div class="days--info">
+                            <p class="days--text">今天</p>
+                            <div class="days--info__level"></div>
+                            <p class="days--temperature">4 / 16°</p>
+                        </div>
+                        <div class="days--wea">
+                            <p class="days--weatext">晴</p>
+                            <p class="days--wealogo">太阳</p>
+                        </div>
+                    </div>
+                    <div class="days__tomorrow">
+                        <div class="days--info">
+                            <p class="days--text">明天</p>
+                            <div class="days--info__level"></div>
+                            <p class="days--temperature">4 / 16°</p>
+                        </div>
+                        <div class="days--wea">
+                            <p class="days--weatext">晴</p>
+                            <p class="days--wealogo">太阳</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="week__wea">
+                <div class="polyline">
+                    <div id="main" style="width: 640px;height:150px;">
+                    </div>
+
+                </div>
+                <ul>
+                    <li class="weekday">
+                        <div class="yesterday date">周六</div>
+                        <div class="textDay">多云</div>
+                        <div class="iconDay "></div>
+                        <div class="line"></div>
+                        <div class="textNight">晴</div>
+                        <div class="iconNight "></div>
+                        <div class="rank">
+                            <div></div>
+                        </div>
+                        <div class="windDirNight">东风</div>
+                        <em class="windScaleNight">3-4</em><em>级</em>
+                    </li>
+                    <li class="weekday">
+                        <div class="yesterday date">周六</div>
+                        <div class="textDay">多云</div>
+                        <div class="iconDay "></div>
+                        <div class="line"></div>
+                        <div class="textNight">阴</div>
+                        <div class="iconNight "></div>
+                        <div class="rank">
+                            <div></div>
+                        </div>
+                        <div class="windDirNight">东风</div>
+                        <em class="windScaleNight">3-4</em><em>级</em>
+                    </li>
+                    <li class="weekday">
+                        <div class="yesterday date">周六</div>
+                        <div class="textDay">多云</div>
+                        <div class="iconDay "></div>
+                        <div class="line"></div>
+                        <div class="textNight">阴</div>
+                        <div class="iconNight "></div>
+                        <div class="rank">
+                            <div></div>
+                        </div>
+                        <div class="windDirNight">东风</div>
+                        <em class="windScaleNight">3-4</em><em>级</em>
+                    </li>
+                    <li class="weekday">
+                        <div class="yesterday date">周六</div>
+                        <div class="textDay">多云</div>
+                        <div class="iconDay "></div>
+                        <div class="line"></div>
+                        <div class="textNight">阴</div>
+                        <div class="iconNight "></div>
+                        <div class="rank">
+                            <div></div>
+                        </div>
+                        <div class="windDirNight">东风</div>
+                        <em class="windScaleNight">3-4</em><em>级</em>
+                    </li>
+                    <li class="weekday">
+                        <div class="yesterday date">周六</div>
+                        <div class="textDay">多云</div>
+                        <div class="iconDay "></div>
+                        <div class="line"></div>
+                        <div class="textNight">阴</div>
+                        <div class="iconNight "></div>
+                        <div class="rank">
+                            <div></div>
+                        </div>
+                        <div class="windDirNight">东风</div>
+                        <em class="windScaleNight">3-4</em><em>级</em>
+                    </li>
+                </ul>
+            </div>
+            <div class="exponent">
+                <ul class="exponent__ul">
+                    <li>
+                        <span>
+                            <img src="http://h5tq.moji.com/mtianqi/assets/images/script/default.png" alt="">
+                            <em class="daily__name">约会</em>
+                            <em class="daily__category">不合适</em>
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            <img src="http://h5tq.moji.com/mtianqi/assets/images/script/default.png" alt="">
+                            <em class="daily__name">约会</em>
+                            <em class="daily__category">不合适</em>
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            <img src="http://h5tq.moji.com/mtianqi/assets/images/script/default.png" alt="">
+                            <em class="daily__name">约会</em>
+                            <em class="daily__category">不合适</em>
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            <img src="http://h5tq.moji.com/mtianqi/assets/images/script/default.png" alt="">
+                            <em class="daily__name">约会</em>
+                            <em class="daily__category">不合适</em>
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            <img src="http://h5tq.moji.com/mtianqi/assets/images/script/default.png" alt="">
+                            <em class="daily__name">约会</em>
+                            <em class="daily__category">不合适</em>
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            <img src="http://h5tq.moji.com/mtianqi/assets/images/script/default.png" alt="">
+                            <em class="daily__name">约会</em>
+                            <em class="daily__category">不合适</em>
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            <img src="http://h5tq.moji.com/mtianqi/assets/images/script/default.png" alt="">
+                            <em class="daily__name">约会</em>
+                            <em class="daily__category">不合适</em>
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            <img src="http://h5tq.moji.com/mtianqi/assets/images/script/default.png" alt="">
+                            <em class="daily__name">约会</em>
+                            <em class="daily__category">不合适</em>
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            <img src="http://h5tq.moji.com/mtianqi/assets/images/script/default.png" alt="">
+                            <em class="daily__name">约会</em>
+                            <em class="daily__category">不合适</em>
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            <img src="http://h5tq.moji.com/mtianqi/assets/images/script/default.png" alt="">
+                            <em class="daily__name">约会</em>
+                            <em class="daily__category">不合适</em>
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            <img src="http://h5tq.moji.com/mtianqi/assets/images/script/default.png" alt="">
+                            <em class="daily__name">约会</em>
+                            <em class="daily__category">不合适</em>
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            <img src="http://h5tq.moji.com/mtianqi/assets/images/script/default.png" alt="">
+                            <em class="daily__name">约会</em>
+                            <em class="daily__category">不合适</em>
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            <img src="http://h5tq.moji.com/mtianqi/assets/images/script/default.png" alt="">
+                            <em class="daily__name">约会</em>
+                            <em class="daily__category">不合适</em>
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            <img src="http://h5tq.moji.com/mtianqi/assets/images/script/default.png" alt="">
+                            <em class="daily__name">约会</em>
+                            <em class="daily__category">不合适</em>
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            <img src="http://h5tq.moji.com/mtianqi/assets/images/script/default.png" alt="">
+                            <em class="daily__name">约会</em>
+                            <em class="daily__category">不合适</em>
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            <img src="http://h5tq.moji.com/mtianqi/assets/images/script/default.png" alt="">
+                            <em class="daily__name">约会</em>
+                            <em class="daily__category">不合适</em>
+                        </span>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="footer">
+                This is footer for test
+            </div>
+        </div>
+        <div class="searchPage hide">
+            <div class="inputdiv">
+                <img src="./img/back.png" alt="" class="iconBack" onclick="backonclick()">
+                <input type="text" placeholder="请输入城市名称" class="searchText">
+            </div>
+            <div class="searchhide">
+                <div class="title">当前城市</div>
+                <div class="nowCity">
+                    <div class="cityFrame">北京市</div>
+                </div>
+                <div class="aline">
+                    <div class="title">添加记录</div>
+                    <div class="historyRecord">
+                        <div class="cityFrame">北京市</div>
+                    </div>
+                    <div class="deleteHistroy">删除</div>
+                </div>
+                <div class="historyCity">
+                    <div class="title">热搜城市</div>
+                    <div class="hotCity"></div>
+                </div>
+            </div>
+            <div class="searchshow hide">
+                <div class="fuzzySearch1">
+                    <div class="fordelete">
+                        <div class="fuzzySearchResult">没有匹配项</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="./js/index1.js"></script>
+<!-- <script src="./js/page.js"></script> -->
+
+</html>

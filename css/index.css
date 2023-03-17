@@ -1,0 +1,370 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    color: white;
+    font-family: "sans serif";
+}
+/* html {
+    font-size: 62.5%;
+} */
+body {
+    box-sizing: border-box;
+}
+.polyline {
+    position: relative;
+}
+#main {
+    position: absolute;
+    margin: 130px 0 0 0;
+}
+.index {
+    width: 640px;
+    /* height: 1000px; */
+    margin: 0 auto;
+}
+.topShow {
+    background: linear-gradient(
+        to bottom,
+        rgb(45, 112, 178),
+        rgb(25, 105, 158)
+    );
+}
+.hide {
+    display: none;
+}
+.header {
+    margin: auto;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    padding: 10px 0;
+}
+.search_btn {
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    background: url(../img/search.png) no-repeat center;
+    background-color: #336699;
+    border-radius: 10px;
+}
+.city {
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+.info__url {
+    padding: 20px;
+}
+.left {
+    text-decoration: none;
+    display: inline-block;
+}
+.left__block {
+    border-radius: 20px;
+    width: 140px;
+    height: 40px;
+    /* 块级元素中的行内元素水平居中 */
+    text-align: center;
+    /* 垂直居中line-heigth等于自己的height */
+    line-height: 40px;
+    background-color: #336699;
+}
+.left__img {
+    /* 将img与text在水平上对齐 */
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: middle;
+    width: 25px;
+}
+.left__text {
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: middle;
+    color: white;
+    font-size: 15px;
+}
+.right {
+    text-decoration: none;
+    display: inline;
+    float: right;
+}
+.right__block {
+    border-radius: 20px;
+    width: 140px;
+    height: 40px;
+    /* 块级元素中的行内元素水平居中 */
+    text-align: center;
+    /* 垂直居中line-heigth等于自己的height */
+    line-height: 40px;
+    background-color: #336699;
+}
+.right__img {
+    /* 将img与text在水平上对齐 */
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: middle;
+    width: 25px;
+}
+.right__text {
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: middle;
+    color: white;
+    font-size: 15px;
+}
+.info__wea {
+    margin: 80px 0 0 10px;
+    color: white;
+    font-size: 25px;
+}
+.info__about {
+    position: relative;
+    height: 150px;
+    padding: 0 10px;
+}
+/* .background {
+    height: 200px;
+    position: relative;
+    background-image: linear-gradient(
+            to bottom,
+            rgb(76, 164, 222),
+            rgb(44, 112, 231)
+        ),
+        url("http://127.0.0.1:5500/img/background.png");
+    background-size: cover;
+    background: transparent;
+} */
+
+.info__about--temperature {
+    position: relative;
+    font-size: 125px;
+}
+/* .info__about--temperature::after {
+    position: absolute;
+    top: 20px;
+    left: 80px;
+    content: "°";
+    font-size: 40px;
+} */
+.info__about--temperaturedu {
+    font-size: 40px;
+    position: absolute;
+    top: 20px;
+}
+.info__detalis {
+    padding: 0 0 10px 10px;
+}
+.info__about--detail {
+    font-size: 15px;
+}
+.days {
+    border-top: 0.1px solid rgb(180, 177, 177);
+    background: url(../img/yin.png);
+    display: flex;
+    font-size: 15px;
+}
+.days__today {
+    padding: 10px;
+    flex: 1;
+    border-right: 0.1px solid rgb(180, 177, 177);
+}
+.days__tomorrow {
+    padding: 10px;
+    flex: 1;
+}
+.days--info p {
+    display: inline-block;
+}
+.days--wea p {
+    display: inline-block;
+}
+.days--temperature {
+    float: right;
+}
+.days--wealogo {
+    float: right;
+}
+.days--info__level {
+    display: inline-block;
+    text-align: center;
+}
+.week__wea ul {
+    display: flex;
+}
+.week__wea li {
+    list-style: none;
+    flex: 1;
+    /* height: 300px; */
+    text-align: center;
+}
+.week__wea li > div {
+    margin: 10px;
+    height: 30px;
+}
+.week__wea li .line {
+    height: 150px;
+}
+.level-1,
+.level-2,
+.level-3,
+.level-4,
+.level-5,
+.level-6 {
+    width: 50px;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+.level-1 {
+    background-color: rgb(20, 179, 20);
+}
+.level-2 {
+    background-color: rgb(134, 134, 26);
+}
+.level-3 {
+    background-color: rgb(137, 98, 27);
+}
+.level-4 {
+    background-color: rgb(150, 29, 29);
+}
+.level-5 {
+    background-color: rgb(89, 16, 89);
+}
+.level-6 {
+    background-color: rgb(103, 18, 18);
+}
+.level-1::after {
+    content: "优";
+}
+.level-2::after {
+    content: "良";
+}
+.level-3::after {
+    content: "轻度";
+}
+.level-4::after {
+    content: "中度";
+}
+.level-5::after {
+    content: "重度";
+}
+.level-6::after {
+    content: "严重";
+}
+
+.exponent {
+    margin: 10px auto;
+    font-size: 15px;
+}
+.exponent ul {
+    font-size: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+.exponent li {
+    border: 1px solid white;
+    /* margin: 0 -1px -1px 0; */
+    width: 33.3%;
+    height: 100px;
+    margin: 0 -1px -1px 0;
+}
+.exponent span {
+    display: block;
+    height: 80px;
+    text-align: center;
+    margin: 10px auto;
+}
+.exponent span img {
+    display: block;
+    margin: 10px auto;
+    width: 40px;
+}
+.exponent em {
+    font-size: 15px;
+    padding: 5px;
+}
+
+.footer {
+    margin: 10px 0;
+    height: 100px;
+    background-color: grey;
+    text-align: center;
+    line-height: 100px;
+}
+
+.searchPage {
+    background: rgb(247, 245, 245);
+    height: 1000px;
+    font: black;
+}
+
+.inputdiv {
+    text-align: center;
+    padding: 10px;
+}
+.inputdiv img,
+input {
+    height: 80px;
+    vertical-align: middle;
+}
+.inputdiv input {
+    width: 80%;
+    color: black;
+    font-size: 30px;
+    outline: none;
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.title,
+.deleteHistroy {
+    color: grey;
+    font-size: 25px;
+    margin: 20px 0;
+}
+.aline {
+    position: relative;
+}
+.deleteHistroy {
+    position: absolute;
+    top: -20px;
+    right: 10px;
+}
+
+.nowCity,
+.hotCity,
+.historyRecord {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    min-height: 80px;
+}
+.cityFrame {
+    width: 170px;
+    height: 60px;
+    margin: 20px;
+    border-radius: 10px;
+    color: rgb(76, 71, 71);
+    background-color: white;
+    text-align: center;
+    line-height: 60px;
+}
+
+.fuzzySearch {
+    display: flex;
+    flex-wrap: wrap;
+}
+.fuzzySearchResult {
+    padding: 10px;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px rgb(87, 79, 79) dashed;
+    color: rgb(74, 69, 69);
+    font-size: 20px;
+}
